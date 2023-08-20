@@ -1,0 +1,1 @@
+<button id="buttonSave" class='btn btn-primary' onclick="CargarDatos(${element.id},'${element.Titulo}','${element.Estado}','${element.Asignado}','${element.Autor}','${element.FechaAltA}','${element.FechaCierre}')" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class='fa fa-edit'></i></button>

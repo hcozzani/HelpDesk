@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>HelpDesk App</title>
+    <link rel="stylesheet" href="assets/customCss/fadeIn.css">
+    <link rel="stylesheet" href="assets/Bootstrap/5.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+
+
+      
+    <nav class="navbar navbar-expand-lg navbar-dark" style="box-shadow: 10px 5px 5px rgb(49, 48, 48);background-color: rgb(36, 36, 36);">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">HelpDesk</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="usuarios.html">Usuarios</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="areas.html">Áreas</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="tickets.html">Tickets</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="dashboard.html">Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Cerrar sesión</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <label for="" class="text-white" id="lblUser"></label>
+            </form>   
+          </div>
+        </div>
+      </nav>
+
+
+      <br>
+      <div class="container-fluid ">
+        <div class="alert alert-secondary" style="background-color: rgb(33, 112, 197);" role="alert"><h4>Areas</h4></div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Nueva Area</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="col">
+          <label class="label-control">Nombre</label>
+          <input type="type" name="Nombre" value="" id="Nombre" class="form-control shadow-sm p-2 mb-3 bg-body-tertiary rounded"/>
+    
+          <label class="label-control">Descripcion</label>
+          <input type="type" name="Descripcion" value="" id="Descripcion" class="form-control shadow-sm p-2 mb-3 bg-body-tertiary rounded"/>
+      </div>
+      
+      <div class="col">
+          <label class="label-control">Jefe</label>
+          <input type="type" name="Jefe" value="" id="Jefe" class="form-control shadow-sm p-2 mb-3 bg-body-tertiary rounded"/>
+          
+          <label class="label-control">Estado</label>
+          <select id="Estado" class="form-select shadow-sm p-2 mb-3 bg-body-tertiary rounded">
+              <option value="V">Vigente</option>
+              <option value="B">Bloqueado</option>
+          </select>
+      </div>
+      <br>
+              
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button id="btnGuardar" class="btn btn-primary" onclick="PostArea();">Guardar Area</button>
+        <button class="btn btn-primary" onclick="PutArea();" id="btnActualizar"  style="display:none">Actualizar Area</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+        <div class="row" id="buttonSave">
+            <div class="col" style="text-align: end;">
+                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="showButtonSave();"><i class="fa fa-plus"></i></button>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="card" style="box-shadow: 10px 5px 5px rgb(201, 200, 200)">
+            <div class="card-body">
+                <table class="table table-dark table-striped">
+                    <thead>
+                    <th>Nombre</th>
+                    <th>Descripcion</th>
+                    <th>Jefe</th>
+                    <th>Área</th>
+                    <th></th>
+                    </thead>
+                    <tbody id="grdDatos"></tbody>
+                </table>
+            </div>
+        </div>  
+    </div>
+
+    <script src="Controllers/areas.controller.js"></script>
+    <script src="assets/Bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

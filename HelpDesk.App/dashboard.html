@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>HelpDesk App</title>
+    <link rel="stylesheet" href="assets/customCss/fadeIn.css">
+    <link rel="stylesheet" href="assets/Bootstrap/5.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+
+
+  <nav class="navbar navbar-expand-lg navbar-dark" style="box-shadow: 10px 5px 5px rgb(49, 48, 48);background-color: rgb(36, 36, 36);">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">HelpDesk</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="usuarios.html">Usuarios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="areas.html">Áreas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="tickets.html">Tickets</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="dashboard.html">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Cerrar sesión</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <label for="" class="text-white" id="lblUser"></label>
+        </form>   
+      </div>
+    </div>
+  </nav>
+      
+      <br>
+      <div class="container-fluid ">
+
+        <div class="alert alert-secondary" style="background-color: rgb(33, 112, 197);" role="alert"><h4>Dashboard</h4></div>
+
+        <div class="row">
+          <div class="col">
+            <div class="alert alert-primary" id="curso" role="alert">Tickets en curso (2)</div>
+            <div class="d-grid gap-2">
+              <button class="btn btn-primary" onclick="getDetalles('En Curso');" >Ver Detalle</button>
+            </div>
+          </div>
+          <div class="col">
+            <div class="alert alert-warning" id="pendientes" role="alert">Tickets pendientes (5)</div>
+            <div class="d-grid gap-2">
+              <button class="btn btn-warning" onclick="getDetalles('Pendiente');">Ver Detalle</button>
+            </div>
+          </div>
+          <div class="col">
+            <div class="alert alert-danger" id="rechazados" role="alert">Tickets rechazados (1)</div>
+            <div class="d-grid gap-2">
+              <button class="btn btn-danger" onclick="getDetalles('Rechazado');">Ver Detalle</button>
+            </div>
+          </div>
+          <div class="col">
+            <div class="alert alert-success" id="terminados" role="alert">Tickets terminados (6)</div>
+            <div class="d-grid gap-2">
+              <button class="btn btn-success" onclick="getDetalles('Terminado');">Ver Detalle</button>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="card" style="box-shadow: 10px 5px 5px rgb(201, 200, 200)">
+            <div class="card-body">
+                <table class="table table-dark table-striped" id="tblData">
+                    <thead>
+                    <th>Id</th>
+                    <th>Titulo</th>
+                    <th>Estado</th>
+                    <th>Autor</th>
+                    <th>Asignado</th>
+                    <th>FechaAlta</th>
+                    <th>FechaCierre</th>
+                    </thead>
+                    <tbody id="grdDatos"></tbody>
+                </table>
+            </div>
+        </div>
+        <br>
+        <button class="btn btn-outline-success position-absolute end-0" onclick="exportTableToExcel('tblData','dashboard-data');">Exportar Tabla</button>
+    </div>
+    <script src="Controllers/dashboard.controller.js"></script>
+    <script src="assets/Bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
